@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34407.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Core", "BloodBank.Core\BloodBank.Core.csproj", "{F4DD49C0-05BF-499D-8AC7-76467F1DC247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodBank.Ui", "BloodBank.Ui\BloodBank.Ui.csproj", "{44A0EEF4-43D4-4151-9134-272A43B3F677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4DD49C0-05BF-499D-8AC7-76467F1DC247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DD49C0-05BF-499D-8AC7-76467F1DC247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DD49C0-05BF-499D-8AC7-76467F1DC247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DD49C0-05BF-499D-8AC7-76467F1DC247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A0EEF4-43D4-4151-9134-272A43B3F677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A0EEF4-43D4-4151-9134-272A43B3F677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A0EEF4-43D4-4151-9134-272A43B3F677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A0EEF4-43D4-4151-9134-272A43B3F677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85A2C62C-2AAE-4320-8BD2-C1E3B1E55B5C}
+	EndGlobalSection
+EndGlobal
