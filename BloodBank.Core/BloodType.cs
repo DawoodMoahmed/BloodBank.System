@@ -2,7 +2,9 @@
 
 namespace BloodBank.Core
 {
-    public class BloodType
+    public enum BloodType
     {
+        APlus,
+        AM
     }
 }

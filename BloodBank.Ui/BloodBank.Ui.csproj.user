@@ -1,8 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Compile Update="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Update="CustomTools\Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaButton2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaButton3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaCircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaScrollbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomTools\CommaToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\PanelButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CustomTools\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

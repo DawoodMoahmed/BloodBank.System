@@ -9,6 +9,6 @@ namespace BloodBank.Core
     public enum Gender
     {
         Male ,
-        Female
+        Female 
     }
 }
