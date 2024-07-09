@@ -6,12 +6,47 @@ using System.Threading.Tasks;
 
 namespace BloodBank.Core.Domain
 {
-    class Inventory
+    public class Inventoryn
     {
-        public Guid BloodID { get; set; }
-        public BloodType BloodType { get; set; }
-        public DateTime WithdrawalDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public Inventoryn()
+        {
+
+        }
+
+        public Inventoryn (
+            Guid donationsid,
+            Guid quantity,
+            string locationstorage,
+            DateTime storagedate,
+            DateTime expirydate)
+        {
+            DonationsId = donationsid;
+            Quantity = quantity;
+            LocationStorage = locationstorage;
+            StorageDate = storagedate;
+            ExpiryDate = expirydate; 
+        } 
+        public Guid InventoryId { get;private set; }
+        public Guid DonationsId { get; private set; }
+        public Guid Quantity { get; private set; }
+        public string LocationStorage { get; set; }
+        public DateTime StorageDate { get;private set; }
+        public DateTime ExpiryDate { get;private set; }
+
+
+        public void Modify(
+            Guid donationsid,
+            Guid quantity,
+            string locationstorage,
+            DateTime storagedate,
+            DateTime expirydate)
+        {
+            DonationsId = donationsid;
+            Quantity = quantity;
+            LocationStorage = locationstorage;
+            StorageDate = storagedate;
+            ExpiryDate = expirydate;
+        }
 
     }
 }

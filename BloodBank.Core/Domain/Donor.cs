@@ -12,56 +12,46 @@ namespace BloodBank.Core.Domain
         {
 
         }
-        public Donor(string firstName, 
-            string lastName, 
-            BloodType bloodType, 
-            DateTime dateOfBirth, 
-            int age, 
-            string address,
+        public Donor(string firstname,
+            string lastname,
             Gender gender,
+            DateTime dateOfBirth, 
+            string address,
             DateTime? lastDonationDate,
-            int phoneNumber)
+            string  phoneNumber)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            BloodType = bloodType;
-            DateOfBirth = dateOfBirth;
-            Age = age;
-            Address = address;
+            FirstName = firstname;
+            LastName = lastname;
             Gender = gender;
+            DateOfBirth = dateOfBirth;
+            Address = address;
             LastDonationDate = lastDonationDate;
             PhoneNumber = phoneNumber;
         }
 
-        public Guid Id { get; private set; }
+        public Guid DonorId { get; private set; }
         public string FirstName { get; private set; }
-        public string LastName { get;private set; }
-        public BloodType BloodType { get;private set; }
-        public DateTime DateOfBirth { get; private set; }
-        public int Age { get; private set; }
-        public string Address { get; private set; }
+        public string LastName { get; private set; }
         public Gender Gender { get; private set; }
+        public DateTime DateOfBirth { get; private set; }
+        public string Address { get; private set; }
         public DateTime? LastDonationDate { get; private set; }
-        public int  PhoneNumber { get; private set; }
+        public string PhoneNumber { get; private set; }
 
 
-        public void Modify(string firstName,
-          string lastName,
-          BloodType bloodType,
-          DateTime dateOfBirth,
-          int age,
-          string address,
+        public void Modify(string firstname,
+          string lastname,
           Gender gender,
+          DateTime dateOfBirth,
+          string address,
           DateTime? lastDonationDate,
-          int phoneNumber)
+          string  phoneNumber)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            BloodType = bloodType;
+            FirstName = firstname;
+            LastName = lastname;
+            Gender = gender; 
             DateOfBirth = dateOfBirth;
-            Age = age;
             Address = address;
-            Gender = gender;
             LastDonationDate = lastDonationDate;
             PhoneNumber = phoneNumber;
         }

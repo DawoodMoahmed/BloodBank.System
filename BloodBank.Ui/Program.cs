@@ -41,7 +41,7 @@ namespace BloodBank.Ui
 
             //Application.Run(new MainView());
 
-            Application.Run(new MainForm());
+            Application.Run(new MainScreen());
         }
 
         public static IServiceProvider ServiceProvider { get; private set; }

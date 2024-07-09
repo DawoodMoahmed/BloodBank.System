@@ -6,13 +6,47 @@ using System.Threading.Tasks;
 
 namespace BloodBank.Core.Domain
 {
-    class TestResults
-    { 
-        public Guid TestResultsID { get; set; }
-        public Guid TestID { get; set; }
-        public Guid BloodID { get; set; }
-        public string Results { get; set; }
-        public DateTime DateofAppearanceTest { get; set; }
+   public class TestResults
+    {
+
+        public TestResults()
+        {
+
+        }
+
+        public TestResults(
+            Guid testid,
+            Guid donationsid, 
+            string results, 
+            DateTime examinationdate)
+        {
+            TestId = testid;
+            DonationsId = donationsid; 
+            Results = results;
+            ExaminationDate = examinationdate;
+        }
+
+
+
+        public Guid TestResultsId { get;private set; }
+        public Guid TestId { get; private set; }
+        public Guid DonationsId { get; private set; }
+        public string Results { get;private set; }
+        public DateTime ExaminationDate { get;private set; } 
+
+
+        public void Modify(
+          Guid testid,
+          Guid donationsid,
+          string results,
+          DateTime examinationdate)
+        {
+            TestId = testid;
+            DonationsId = donationsid;
+            Results = results;
+            ExaminationDate = examinationdate; 
+        }
 
     }
+ 
 }

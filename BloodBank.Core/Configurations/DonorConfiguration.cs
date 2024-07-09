@@ -15,7 +15,10 @@ namespace BloodBank.Core.Configurations
         {
             builder.Property(e => e.FirstName).IsRequired().HasMaxLength(255);
             builder.Property(e => e.LastName).IsRequired().HasMaxLength(255);
-            builder.Property(e => e.Address).HasMaxLength(255);
+            builder.Property(e => e.Address).IsRequired().HasMaxLength(255);
+            builder.Property(e => e.BloodType).IsRequired().HasMaxLength(4); 
+            builder.Property(e => e.PhoneNumber).IsRequired().HasMaxLength(10);
+            builder.Property(e => e.LastDonationDate).IsRequired(); 
         }
     }
 }

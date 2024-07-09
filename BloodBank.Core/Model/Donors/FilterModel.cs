@@ -10,7 +10,6 @@ namespace BloodBank.Core.Model.Donors
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-      
-        public int? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

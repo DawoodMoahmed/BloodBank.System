@@ -6,12 +6,49 @@ using System.Threading.Tasks;
 
 namespace BloodBank.Core.Domain
 {
-    class DamagedBlood
-    {
-        public Guid DamagedBloodID { get; set; }
-        public Guid BloodID { get; set; }
-        public Guid MedicalTechniciansID { get; set; }
-        public string TheReason { get; set; }
-        public  DateTime DateOfDestruction { get; set; }
+    public class DamagedBlood
+    { 
+
+        public DamagedBlood()
+        {
+
+        }
+
+
+        public DamagedBlood(
+            Guid inventoryid, 
+            Guid medicalTechniciansid,
+            Guid quantity, 
+            string theReason, 
+            DateTime deletiondate)
+        {
+            InventoryId = inventoryid;
+            MedicalTechniciansId = medicalTechniciansid;
+            Quantity = quantity; 
+            TheReason = theReason;
+            DeletionDate = deletiondate; 
+        }
+
+        public Guid DamagedBloodId { get;private set; }
+        public Guid InventoryId { get;private set; }
+        public Guid MedicalTechniciansId { get;private set; }
+        public Guid Quantity { get; private set; }
+        public string TheReason { get;private set; }
+        public DateTime DeletionDate { get;private set; }
+
+        public void Modify(
+            Guid inventoryid,
+            Guid medicalTechniciansid,
+            Guid quantity,
+            string theReason,
+            DateTime deletiondate)
+        {
+            InventoryId = inventoryid;
+            MedicalTechniciansId = medicalTechniciansid;
+            Quantity = quantity;
+            TheReason = theReason;
+            DeletionDate = deletiondate;
+
+        }
     }
 }

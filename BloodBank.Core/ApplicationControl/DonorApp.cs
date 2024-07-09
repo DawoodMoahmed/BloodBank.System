@@ -11,9 +11,9 @@ namespace BloodBank.Core.Application
 {
     public class DonorApp
     {
-        private readonly ApplictionContext appContext;
+        private readonly ApplicationContext appContext;
 
-        public DonorApp(ApplictionContext appContext)
+        public DonorApp(ApplicationContext appContext)
         {
             this.appContext = appContext;
         }
@@ -22,15 +22,21 @@ namespace BloodBank.Core.Application
             
             if (string.IsNullOrEmpty(model.FirstName))
             {
-                return (false, "يرجى ادخال الاسم");
+                return (false, "يرجى ادخال الاسم الأول ");
             }
             if (string.IsNullOrEmpty(model.LastName))
             {
-                return (false, "يرجى ادخال الاسم");
+                return (false, "يرجى ادخال الاسم الأخير");
+            }
+            if (string.IsNullOrEmpty(model.PhoneNumber))
+            {
+                return (false, "يرجى أدخال رقم الهاتف");
             }
             return (true, "");
            
         }
+
+        ////////////////// Create //////////////////
         public async Task<Result> CreateAsync(InputModel model)
         {
             var validate = Validate(model);
@@ -53,11 +59,9 @@ namespace BloodBank.Core.Application
             var donor = new Donor(
                 model.FirstName,
                 model.LastName,
-                model.BloodType,
-                model.DateOfBirth,
-                model.Age,
-                model.Address,
                 model.Gender,
+                model.DateOfBirth,
+                model.Address,
                 model.LastDonationDate,
                 model.PhoneNumber);
 
@@ -66,50 +70,47 @@ namespace BloodBank.Core.Application
 
             if (reslut ==0 )
             {
-                return new Result().Fail( "عذرا لم يتم اضافة ");
+                return new Result().Fail( "عذرا لم يتم عملية اضافة ");
 
             }
-            return new Result().Success(donor, "تم أضافه بنجاح ");
-            
-
+            return new Result().Success(donor, "تمت عملية أضافه بنجاح ");
         }
 
+        ////////////// Update ////////////////
         public async Task<Result> UpdateAsync(Guid id, InputModel model)
         {
             var validate = Validate(model);
             if (!validate.isValide)
             {
-                return new Result().Fail(validate.message);
+                return new Result().Fail( validate.message);
             }
 
 
             var isNameExiesd = appContext.Donors.Any(i =>
-                                i.Id != id &&
+                                i.DonorId != id &&
                                 i.FirstName == model.FirstName &&
                                 i.LastName == model.LastName &&
                                 i.PhoneNumber == model.PhoneNumber);
 
             if (isNameExiesd)
             {
-                return new Result().Fail("عذرا هذا المتبرع موجود مسبقا");
+                return new Result().Fail( "عذرا هذا المتبرع موجود مسبقا");
 
             }
             var donor = await appContext.Donors.FindAsync(id);
 
             if (donor == null)
             {
-                return new Result().Fail( "عذرا لم يتم العثور على المتبرع ");
+                return new Result().Fail( "عذرا لم يتم العثور على هذا المتبرع ");
 
             }
 
             donor.Modify(
-                  model.FirstName,
+                model.FirstName,
                 model.LastName,
-                model.BloodType,
-                model.DateOfBirth,
-                model.Age,
-                model.Address,
                 model.Gender,
+                model.DateOfBirth, 
+                model.Address,
                 model.LastDonationDate,
                 model.PhoneNumber
                 );
@@ -119,27 +120,29 @@ namespace BloodBank.Core.Application
 
             if (reslut == 0)
             {
-                return new Result().Fail( "عذرا لم يتم اضافة ");
+                return new Result().Fail( "عذرا لم تتم عملية أضافة ");
 
             }
-            return new Result().Success(donor, "تم أضافه بنجاح ");
+            return new Result().Success(donor, "تمت عملية أضافه بنجاح ");
         }
 
+        ////////////// Find ////////////////
         public async Task<Result> FindAsync(Guid id)
         {
             var donor = await appContext.Donors.FindAsync(id);
 
             if (donor == null)
             {
-                return new Result().Success(true, "عذرا لم يتم العثور على المتبرع ");
+                return new Result().Fail( "عذرا لم يتم العثور على المتبرع ");
 
             }
 
-            return new Result().Success(donor, "تم الحذف بنجاح  ");
+            return new Result().Success(donor, " تم العثور علي هدا المتبرع بنجاح ");
 
 
         }
 
+        ////////////// Delet ////////////////
         public async Task<Result> DeleteAsync(Guid id)
         {
       
@@ -147,7 +150,7 @@ namespace BloodBank.Core.Application
 
             if (donor == null)
             {
-                return new Result().Success(true, "عذرا لم يتم العثور على المتبرع ");
+                return new Result().Fail("عذرا لم يتم العثور على المتبرع ");
 
             }
 
@@ -156,14 +159,19 @@ namespace BloodBank.Core.Application
 
             if (reslut == 0)
             {
-                return new Result().Success(true, "عذرا لم يتم العثور علي المتبرع  ");
+                return new Result().Fail( "عذرا لم تمت عملية الحذف  ");
 
             }
-            return new Result().Success(null, "تم الحذف بنجاح  ");
+            return new Result().Success(true, "تمت عملية الحذف بنجاح  ");
 
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterModel"></param>
+        /// <returns></returns>
         public async Task<Result> IndexAsync(FilterModel filterModel)
         {
             var donor =  appContext.Donors.AsQueryable();
@@ -188,7 +196,7 @@ namespace BloodBank.Core.Application
             }
 
             var reslut = await donor.ToListAsync();
-            return new Result().Success(donor, "تم الحذف بنجاح  ");
+            return new Result().Success(donor, "تم العرض جميع السجلات بنجاح  ");
 
 
         }
